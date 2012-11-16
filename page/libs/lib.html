@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CreateJS export from lib</title>
+
+<!-- 配置 -->
+<script type="text/javascript"  src="../../js/vendor/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/config-0.1.0.js"></script>
+<!-- 第三方类库 -->
+<script type="text/javascript">
+	config.Global.getBaseCss();
+	config.Global.getJQueryUICss();
+	config.Global.getCreateJSScript();
+	config.Global.getICS3BaseScript();
+	config.Global.getUtilsScript();
+</script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+
+	var manifest = [
+		{src:"sounds/pop.mp3", id:"pop"}
+	];
+
+	var loader = new createjs.PreloadJS(false);
+	loader.installPlugin(createjs.SoundJS);
+	loader.onComplete = handleComplete;
+	loader.loadManifest(manifest);
+}
+
+function handleComplete() {
+	exportRoot = new lib._lib();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(24);
+	createjs.Ticker.addListener(stage);
+}
+
+function playSound(name, loop) {
+	createjs.SoundJS.play(name, createjs.SoundJS.INTERRUPT_EARLY, 0, 0, loop);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="550" height="400" style="background-color:#ffffff"></canvas>
+</body>
+</html>

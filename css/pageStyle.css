@@ -1,0 +1,41 @@
+@charset "utf-8";
+/** CSS Document
+* @author	chengcheng
+*/
+body{
+	background:url(../images/background.png);
+}
+h1{
+	font-size:36px;
+	color:#DCDCDC;
+	font-family:"微软雅黑";
+	text-align:center;
+}
+h2 {
+    font-size:32px;
+    font-family:"微软雅黑";
+	float:none;
+	color:#DCDCDC;
+	text-align:center;
+}
+h3 {
+    font-size:24px;
+    font-family: "微软雅黑";
+	color:#DCDCDC;
+}
+
+.text{
+	font-size:24px;
+	font-weight:bold;
+    font-family:"宋体";
+	color:#DCDCDC;
+}
+
+canvas{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1024px;
+	height:768px;
+	z-index:-1;
+}
